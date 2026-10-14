@@ -1,7 +1,11 @@
-# compiled output
+
+# Compiled output
 /dist
 /node_modules
 /build
+coverage/
+/.nyc_output
+*.tsbuildinfo
 
 # Logs
 logs
@@ -14,54 +18,48 @@ lerna-debug.log*
 
 # OS
 .DS_Store
-
-# Tests
-/coverage
-/.nyc_output
+Thumbs.db
 
 # IDEs and editors
-/.idea
+.idea/
 .project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
-
-# IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
-
-# temp directory
-.temp
-.tmp
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+# Environment secrets
+.env*
+!.env.example
 
 # Uploaded files and private user data
 /uploads/
 *.sql
 
-# Build cache
-*.tsbuildinfo
+# Temporary files
+.temp
+.tmp
 
-# Environment secrets
-.env*
-!.env.example
+# Package manager and tool caches
+.npm/
+.eslintcache
+.stylelintcache
+.pnpm-store/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.output/
+.svelte-kit/
+.astro/
+.turbo/
+.serverless/
+.firebase/
+.dynamodb/
+.vite/
