@@ -1,0 +1,300 @@
+/* =========================
+   Toy Shop - Login Page
+   ========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7fb;
+    color: #333;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================
+   Navbar
+   ========================= */
+
+.navbar {
+    width: 100%;
+    height: 70px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 60px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    color: #000;
+}
+
+
+/* =========================
+   Main Container
+   ========================= */
+
+.container {
+    width: 100%;
+    max-width: 450px;
+
+    margin: 70px auto;
+
+    background: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.container h1 {
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    font-size: 30px;
+    color: #333;
+}
+
+
+/* =========================
+   Form
+   ========================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #444;
+}
+
+input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #888;
+
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================
+   Login Button
+   ========================= */
+
+button {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #333;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #555;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+    margin-top: auto;
+
+    width: 100%;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e5e5e5;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .menu {
+        gap: 15px;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+
+    .container {
+        width: calc(100% - 30px);
+
+        padding: 30px 20px;
+
+        margin: 40px auto;
+    }
+
+    .container h1 {
+        font-size: 26px;
+    }
+}
+/* =========================
+   Register
+   ========================= */
+
+.register-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.register-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.register-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.register-form div {
+    margin-bottom: 20px;
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.register-form input:focus {
+    border-color: #ff6b81;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff6b81;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    background-color: #ff4757;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+
+.login-link a {
+    color: #ff6b81;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

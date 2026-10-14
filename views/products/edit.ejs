@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Product</title>
+
+    <link rel="stylesheet" href="/css/products.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🧸 Toy Shop
+        </div>
+
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/products/page">Products</a>
+            <a href="#">Cart</a>
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <h1>Edit Product</h1>
+
+        <form
+            action="/products/<%= product.id %>/edit"
+            method="POST"
+            class="product-form"
+        >
+
+            <label>
+                Product Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                value="<%= product.name %>"
+                required
+            >
+
+
+            <label>
+                Price
+            </label>
+
+            <input
+                type="number"
+                name="price"
+                value="<%= product.price %>"
+                required
+            >
+
+
+            <label>
+                Stock
+            </label>
+
+            <input
+                type="number"
+                name="stock"
+                value="<%= product.stock %>"
+                required
+            >
+
+
+            <label>
+                Description
+            </label>
+
+            <textarea
+                name="description"
+                required
+            ><%= product.description %></textarea>
+
+
+            <button type="submit">
+                Save Changes
+            </button>
+
+            <a href="/products/page">
+                Cancel
+            </a>
+
+        </form>
+
+    </main>
+
+
+    <footer>
+
+        <p>© 2026 Toy Shop</p>
+
+    </footer>
+
+</body>
+
+</html>

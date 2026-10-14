@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Management</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            🧸 Toy Shop
+        </div>
+
+        <div class="menu">
+            <a href="/products/page">Products</a>
+            <a href="/payments/admin">Payments</a>
+            <a href="/payments/dashboard">Dashboard</a>
+            <a href="/auth/logout">Logout</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <h1>Payment Management</h1>
+
+        <p class="subtitle">
+            Admin: <%= username %>
+        </p>
+
+        <div class="section">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Payment ID</th>
+                        <th>Order ID</th>
+                        <th>Amount</th>
+                        <th>Method</th>
+                        <th>Payment Slip</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <% payments.forEach(payment => { %>
+
+                        <tr>
+
+                            <td>
+                                <%= payment.id %>
+                            </td>
+
+                            <td>
+                                <%= payment.orderId %>
+                            </td>
+
+                            <td>
+                                ฿<%= payment.amount %>
+                            </td>
+
+                            <td>
+                                <%= payment.method %>
+                            </td>
+
+                            <td>
+
+                                <% if (payment.slipImage) { %>
+
+                                    <a
+                                        href="/uploads/slips/<%= payment.slipImage %>"
+                                        target="_blank"
+                                        class="view-slip"
+                                    >
+                                        View Slip
+                                    </a>
+
+                                <% } else { %>
+
+                                    <span class="no-slip">
+                                        No Slip
+                                    </span>
+
+                                <% } %>
+
+                            </td>
+
+                            <td>
+
+                                <span class="status <%= payment.status.toLowerCase().replace(/_/g, '-') %>">
+                                    <%= payment.status %>
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <% if (payment.status === 'WAITING_FOR_REVIEW') { %>
+
+                                    <div class="action-buttons">
+
+                                        <form
+                                            action="/payments/<%= payment.id %>/approve"
+                                            method="POST"
+                                        >
+                                            <button
+                                                type="submit"
+                                                class="approve-btn"
+                                            >
+                                                Approve
+                                            </button>
+                                        </form>
+
+                                        <form
+                                            action="/payments/<%= payment.id %>/reject"
+                                            method="POST"
+                                        >
+                                            <button
+                                                type="submit"
+                                                class="reject-btn"
+                                            >
+                                                Reject
+                                            </button>
+                                        </form>
+
+                                    </div>
+
+                                <% } else { %>
+
+                                    <span class="completed">
+                                        Completed
+                                    </span>
+
+                                <% } %>
+
+                            </td>
+
+                        </tr>
+
+                    <% }) %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

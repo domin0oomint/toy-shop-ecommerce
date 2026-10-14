@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Management - Toy Shop</title>
+
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🧸 Toy Shop Admin
+        </div>
+
+        <div class="menu">
+            <a href="/products/page">Products</a>
+            <a href="/payments/dashboard">Dashboard</a>
+            <a href="/payments/admin">Payments</a>
+            <a href="/orders/admin" class="active">Orders</a>
+            <a href="/auth/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="container">
+
+        <div class="page-header">
+            <div>
+                <h1>Order Management</h1>
+                <p class="subtitle">
+                    Manage customer orders
+                </p>
+            </div>
+
+            <div class="admin-user">
+                👤 <%= username %>
+            </div>
+        </div>
+
+
+        <!-- Order Table -->
+        <div class="section">
+
+            <div class="section-header">
+                <h2>All Orders</h2>
+
+                <span class="order-count">
+                    <%= orders.length %> Orders
+                </span>
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <% orders.forEach(order => { %>
+
+                            <tr>
+
+                                <td>
+                                    <strong>#<%= order.id %></strong>
+                                </td>
+
+                                <td>
+                                    User #<%= order.userId %>
+                                </td>
+
+                                <td class="price">
+                                    ฿<%= Number(order.total).toLocaleString() %>
+                                </td>
+
+                                <td>
+
+                                    <a
+                                        href="/orders/admin/<%= order.id %>"
+                                        class="view-button"
+                                    >
+                                        View
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                        <% }) %>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 Toy Shop Admin</p>
+    </footer>
+
+</body>
+</html>

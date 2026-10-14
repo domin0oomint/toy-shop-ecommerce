@@ -1,0 +1,358 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #333;
+}
+
+/* Navbar */
+
+.navbar {
+    background: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu a:hover {
+    color: #6c63ff;
+}
+
+/* Container */
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* Dashboard Cards */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    margin: 0 0 15px;
+    font-size: 15px;
+    color: #777;
+}
+
+.card p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Section */
+
+.section {
+    background: white;
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+    overflow-x: auto;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background: #f1f3f8;
+    text-align: left;
+    padding: 14px;
+    font-size: 14px;
+    color: #555;
+}
+
+td {
+    padding: 14px;
+    border-top: 1px solid #eee;
+}
+
+tr:hover {
+    background: #fafbff;
+}
+
+/* Status */
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #e7f7ed;
+    color: #218838;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Waiting for Review */
+
+.status.waiting-for-review {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Paid */
+
+.status.paid {
+    background: #e7f7ed;
+    color: #218838;
+}
+
+/* Rejected */
+
+.status.rejected {
+    background: #f8d7da;
+    color: #c82333;
+}
+
+/* Payment Slip */
+
+.view-slip {
+    display: inline-block;
+    padding: 8px 14px;
+
+    background: #6c63ff;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.view-slip:hover {
+    opacity: 0.85;
+}
+
+.no-slip {
+    color: #999;
+    font-size: 13px;
+}
+
+/* Payment Actions */
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.action-buttons form {
+    margin: 0;
+}
+
+.action-buttons button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* Approve */
+
+.approve-btn {
+    background: #28a745;
+    color: white;
+}
+
+.approve-btn:hover {
+    background: #218838;
+}
+
+/* Reject */
+
+.reject-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.reject-btn:hover {
+    background: #c82333;
+}
+
+/* Completed */
+
+.completed {
+    color: #999;
+    font-size: 13px;
+}
+
+/* General Button */
+
+.button {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+
+    background: #6c63ff;
+    color: white;
+
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.85;
+}
+
+/* Footer Links */
+
+.footer-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Order Management */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    margin: 0;
+}
+
+.admin-user {
+    background: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    font-weight: bold;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h2 {
+    margin: 0;
+}
+
+.order-count {
+    background: #f1f3f8;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.view-button {
+    display: inline-block;
+    padding: 8px 15px;
+
+    background: #6c63ff;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 7px;
+
+    font-size: 14px;
+}
+
+.view-button:hover {
+    opacity: 0.85;
+}
+
+.menu a.active {
+    color: #6c63ff;
+    font-weight: bold;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🧸 Toy Shop
+        </div>
+
+        <div class="menu">
+            <a href="/products/page">Products</a>
+            <a href="/payments/admin">Payments</a>
+            <a href="/payments/dashboard">Dashboard</a>
+            <a href="/auth/logout">Logout</a>
+        </div>
+
+    </nav>
+
+    <main class="container">
+
+        <h1>Admin Dashboard</h1>
+
+        <p class="subtitle">
+            Welcome, <%= username %>
+        </p>
+
+        <div class="dashboard-cards">
+
+            <div class="card">
+                <h3>Total Users</h3>
+                <p><%= dashboard.totalUsers %></p>
+            </div>
+
+            <div class="card">
+                <h3>Total Products</h3>
+                <p><%= dashboard.totalProducts %></p>
+            </div>
+
+            <div class="card">
+                <h3>Total Orders</h3>
+                <p><%= dashboard.totalOrders %></p>
+            </div>
+
+            <div class="card">
+                <h3>Total Payments</h3>
+                <p><%= dashboard.totalPayments %></p>
+            </div>
+
+            <div class="card">
+                <h3>Total Sales</h3>
+                <p>฿<%= dashboard.totalSales %></p>
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Admin Management</h2>
+
+            <div class="footer-links">
+
+                <a href="/payments/admin" class="button">
+                    Payment Management
+                </a>
+
+                <a href="/products/page" class="button">
+                    Products
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

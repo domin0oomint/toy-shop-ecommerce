@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - Toy Shop</title>
+  <link rel="stylesheet" href="/css/payment.css">
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      🧸 Toy Shop
+    </div>
+
+    <div class="menu">
+      <a href="/">Home</a>
+      <a href="/products/page">Products</a>
+      <a href="/cart">Cart</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <h1 class="page-title">
+      Payment
+    </h1>
+
+    <div class="payment-card">
+
+      <div class="order-info">
+
+        <p>
+          User:
+          <strong><%= username %></strong>
+        </p>
+
+        <!-- <p>
+          Order ID:
+          <strong><%= orderId %></strong>
+        </p> -->
+
+        <p>
+          Amount:
+          <span class="amount">
+            ฿<%= amount %>
+          </span>
+        </p>
+
+      </div>
+
+      <form
+        action="/payments/pay"
+        method="POST"
+        enctype="multipart/form-data"
+        id="paymentForm"
+      >
+      <input type="hidden" name="orderId" value="<%= orderId %>">
+  <input type="hidden" name="amount" value="<%= amount %>">
+        <div class="form-group">
+
+          <label for="paymentMethod">
+            Payment Method
+          </label>
+
+          <select
+            name="method"
+            id="paymentMethod"
+            required
+          >
+            <option value="">
+              -- Select Payment Method --
+            </option>
+
+            <option value="Cash on Delivery">
+              Cash on Delivery
+            </option>
+
+            <option value="QR Payment">
+              QR Payment
+            </option>
+          </select>
+
+        </div>
+
+        <!-- QR PAYMENT -->
+
+        <div
+          class="qr-section"
+          id="qrPayment"
+        >
+
+          <h3>
+            Scan QR Code to Pay
+          </h3>
+
+          <p>
+            Order ID: <%= orderId %>
+          </p>
+
+          <p>
+            Amount: ฿<%= amount %>
+          </p>
+
+          <img
+            src="/images/payment-qr.png"
+            alt="Payment QR Code"
+          >
+
+          <p>
+            Please scan the QR Code and complete the payment.
+          </p>
+
+          <!-- UPLOAD SLIP -->
+
+          <div
+            class="upload-section"
+            id="uploadSection"
+          >
+
+            <label for="slip">
+              Upload Payment Slip
+            </label>
+
+            <div class="upload-box">
+
+              <input
+                type="file"
+                name="slip"
+                id="slip"
+                accept="image/png,image/jpeg,image/jpg"
+              >
+
+              <p style="margin-top: 10px;">
+                JPG or PNG image only
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <button
+          type="submit"
+          class="submit-btn"
+        >
+          Submit Payment
+        </button>
+
+      </form>
+
+      <a
+        href="/cart"
+        class="back-link"
+      >
+        ← Back to Cart
+      </a>
+
+    </div>
+
+  </main>
+
+  <script>
+
+    const paymentMethod =
+      document.getElementById('paymentMethod');
+
+    const qrPayment =
+      document.getElementById('qrPayment');
+
+    const uploadSection =
+      document.getElementById('uploadSection');
+
+    const slip =
+      document.getElementById('slip');
+
+    paymentMethod.addEventListener(
+      'change',
+      function () {
+
+        if (this.value === 'QR Payment') {
+
+          qrPayment.style.display = 'block';
+
+          uploadSection.style.display = 'block';
+
+          slip.required = true;
+
+        } else {
+
+          qrPayment.style.display = 'none';
+
+          uploadSection.style.display = 'none';
+
+          slip.required = false;
+
+          slip.value = '';
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

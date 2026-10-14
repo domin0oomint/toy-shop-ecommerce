@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Toy Shop</title>
+
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🧸 Toy Shop
+        </div>
+
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/products/page">Products</a>
+            <a href="/cart">Cart</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="container">
+
+        <div class="page-title">
+
+            <h1>Checkout</h1>
+
+            <p>
+                User: <strong><%= username %></strong>
+            </p>
+
+        </div>
+
+
+        <div class="checkout-layout">
+
+            <!-- Selected Products -->
+            <section class="products-card">
+
+                <div class="card-header">
+
+                    <h2>Selected Products</h2>
+
+                    <span>
+                        <%= order.items.length %> item<%= order.items.length !== 1 ? 's' : '' %>
+                    </span>
+
+                </div>
+
+
+                <div class="product-list">
+
+                    <% order.items.forEach(item => { %>
+
+                        <div class="product-item">
+
+                            <!-- Product Image -->
+                            <div class="product-image">
+                                🧸
+                            </div>
+
+
+                            <!-- Product Information -->
+                            <div class="product-info">
+
+                                <h3>
+                                    <%= item.productName %>
+                                </h3>
+
+                                <p class="price">
+                                    ฿<%= item.price %>
+                                </p>
+
+                                <p class="quantity">
+                                    Quantity: <strong><%= item.quantity %></strong>
+                                </p>
+
+                            </div>
+
+
+                            <!-- Subtotal -->
+                            <div class="subtotal">
+
+                                <span>Subtotal</span>
+
+                                <strong>
+                                    ฿<%= item.subtotal %>
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    <% }) %>
+
+                </div>
+
+            </section>
+
+
+            <!-- Order Summary -->
+            <aside class="summary-card">
+
+                <h2>Order Summary</h2>
+
+
+                <div class="summary-row">
+
+                    <span>Items</span>
+
+                    <strong>
+                        <%= order.items.length %>
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-divider"></div>
+
+
+                <div class="total-row">
+
+                    <span>Total</span>
+
+                    <strong>
+                        ฿<%= order.total %>
+                    </strong>
+
+                </div>
+
+
+                <!-- Confirm Order -->
+                <form action="/orders/confirm" method="POST">
+
+                    <% order.items.forEach(item => { %>
+
+                        <input
+                            type="hidden"
+                            name="cartItemIds"
+                            value="<%= item.cartItemId %>"
+                        >
+
+                    <% }) %>
+
+
+                    <button
+                        type="submit"
+                        class="confirm-btn"
+                    >
+                        Confirm Order
+                    </button>
+
+                </form>
+
+
+                <a
+                    href="/cart"
+                    class="back-btn"
+                >
+                    ← Back to Cart
+                </a>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2026 Toy Shop</p>
+
+    </footer>
+
+</body>
+
+</html>

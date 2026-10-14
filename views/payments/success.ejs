@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Submitted - Toy Shop</title>
+
+  <link rel="stylesheet" href="/css/success.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+
+    <div class="logo">
+      🧸 Toy Shop
+    </div>
+
+    <div class="menu">
+      <a href="/">Home</a>
+      <a href="/products/page">Products</a>
+      <a href="/cart">Cart</a>
+    </div>
+
+  </nav>
+
+
+  <main class="container">
+
+    <div class="success-card">
+
+      <div class="success-icon">
+        ✓
+      </div>
+
+      <h1>Payment Submitted!</h1>
+
+      <p class="thank-you">
+        Thank you, <strong><%= username %></strong>
+      </p>
+
+      <div class="divider"></div>
+
+
+      <div class="payment-info">
+
+        <!-- <div class="info-row">
+          <span>Payment ID</span>
+          <strong><%= payment.id %></strong>
+        </div>
+
+        <div class="info-row">
+          <span>Order ID</span>
+          <strong><%= payment.orderId %></strong>
+        </div> -->
+
+        <div class="info-row">
+          <span>Amount</span>
+          <strong class="amount">
+            ฿<%= payment.amount %>
+          </strong>
+        </div>
+
+        <div class="info-row">
+          <span>Payment Method</span>
+          <strong>
+            <%= payment.method %>
+          </strong>
+        </div>
+
+        <div class="info-row">
+          <span>Payment Status</span>
+
+          <span class="status <%= payment.status.toLowerCase().replace(/_/g, '-') %>">
+            <%= payment.status %>
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <% if (payment.status === 'WAITING_FOR_REVIEW') { %>
+
+        <div class="message waiting-message">
+          Your payment slip has been submitted successfully.
+          Please wait for the admin to verify your payment.
+        </div>
+
+      <% } else if (payment.status === 'PAID') { %>
+
+        <div class="message paid-message">
+          Your payment has been verified successfully.
+        </div>
+
+      <% } else if (payment.status === 'REJECTED') { %>
+
+        <div class="message rejected-message">
+          Your payment was rejected.
+          Please contact the shop or submit a new payment.
+        </div>
+
+      <% } %>
+
+
+      <a href="/products/page" class="back-button">
+        Back to Products
+      </a>
+
+    </div>
+
+  </main>
+
+</body>
+
+</html>

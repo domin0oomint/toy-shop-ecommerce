@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Product - Toy Shop</title>
+
+    <link rel="stylesheet" href="/css/products.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🧸 Toy Shop
+        </div>
+
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/products/page">Products</a>
+            <a href="#">Cart</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Add Product Form -->
+    <main class="container">
+
+        <h1>Add Product</h1>
+
+        <form action="/products" method="POST" enctype="multipart/form-data">
+
+            <div>
+                <label for="name">Product Name</label>
+
+                <input type="text" id="name" name="name" required>
+            </div>
+
+
+            <div>
+                <label for="price">Price</label>
+
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+
+
+            <div>
+                <label for="stock">Stock</label>
+
+                <input type="number" id="stock" name="stock" required>
+            </div>
+
+
+            <div>
+                <label for="description">Description</label>
+
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div>
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+
+
+            <button type="submit">
+                Add Product
+            </button>
+
+        </form>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Toy Shop</p>
+    </footer>
+
+</body>
+
+</html>

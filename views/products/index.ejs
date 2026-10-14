@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Toy Shop</title>
+
+    <link rel="stylesheet" href="/css/products.css">
+</head>
+<script>
+    function goAdminPage(url) {
+        if (url) {
+            window.location.href = url;
+        }
+    }
+</script>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            🧸 Toy Shop
+        </div>
+
+        <div class="menu">
+
+    <a href="/">Home</a>
+    <a href="/products/page">Products</a>
+    <a href="/cart">Cart</a>
+
+    <% if (role === 'seller') { %>
+
+        <select onchange="goAdminPage(this.value)">
+            <option value="">Admin</option>
+
+            <option value="/payments/dashboard">
+                Dashboard
+            </option>
+
+            <option value="/payments/admin">
+                Payments
+            </option>
+
+            <option value="/orders/admin">
+                Orders
+            </option>
+        </select>
+
+    <% } %>
+
+    <a href="/auth/logout">Logout</a>
+
+</div>
+    </nav>
+
+
+    <!-- Product Section -->
+    <main class="container">
+
+        <div class="products-header">
+
+            <h1>Our Products</h1>
+
+            <% if (role==='seller' ) { %>
+                <a href="/products/create" class="add-product-button">
+                    + Add Product
+                </a>
+                <% } %>
+
+        </div>
+
+        <% products.forEach(product=> { %>
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                </div>
+
+                <h2>
+                    <%= product.name %>
+                </h2>
+
+                <p class="description">
+                    <%= product.description %>
+                </p>
+
+                <p class="price">
+                    ฿<%= product.price %>
+                </p>
+
+                <p class="stock">
+                    Stock: <%= product.stock %>
+                </p>
+
+                <% if (role==='seller' ) { %>
+
+                    <div class="seller-actions">
+
+                        <a href="/products/<%= product.id %>/edit" class="edit-button">
+                            Edit
+                        </a>
+
+                        <form action="/products/<%= product.id %>/delete" method="POST" style="display: inline;">
+                            <button type="submit" class="delete-button">
+                                Delete
+                            </button>
+                        </form>
+
+                    </div>
+
+                    <% } else if (role==='buyer' ) { %>
+
+                        <form action="/cart/add" method="POST">
+
+    <input
+        type="hidden"
+        name="productId"
+        value="<%= product.id %>"
+    >
+
+    <input
+        type="number"
+        name="quantity"
+        value="1"
+        min="1"
+    >
+
+    <button type="submit">
+        Add to Cart
+    </button>
+
+</form>
+
+                        <% } %>
+            </div>
+
+            <% }) %>
+
+                </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Toy Shop</p>
+    </footer>
+
+</body>
+
+</html>

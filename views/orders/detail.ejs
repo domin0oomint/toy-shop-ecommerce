@@ -1,0 +1,17 @@
+<h1>Order Details</h1>
+<h3>Order ID: <%= order.id %></h3>
+<p>User ID: <%= order.userId %></p>
+<p>Total: $<%= order.total %></p>
+
+<h2>Product Details</h2>
+
+<ul>
+  <% orderItems.forEach(item => { %>
+    <li>
+      <strong>Product Name:</strong> <%= item.productName %><br>  
+      Product ID: <%= item.productId %>
+      - Quantity: <%= item.quantity %>
+      - Price: $<%= item.price %>
+    </li>
+  <% }); %>
+</ul>
